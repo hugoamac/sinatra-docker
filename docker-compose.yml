@@ -1,0 +1,25 @@
+version: '3'
+
+volumes:
+    data_mysql: 
+services:
+    db:
+        image: 'mysql:5'
+        restart: always
+        ports:
+            - '3307:3306'
+        volumes:
+            - 'data_mysql:/var/lib/mysql'
+        environment:
+            MYSQL_DATABASE: sinatra
+            MYSQL_ROOT_PASSWORD: lordswxp
+    app:
+        build: .
+        ports:
+            - '4568:4567'
+        volumes:
+            - './:/usr/share/app/'
+        depends_on:
+            - db
+        links:
+            - db
