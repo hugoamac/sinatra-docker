@@ -12,7 +12,7 @@ services:
             - 'data_mysql:/var/lib/mysql'
         environment:
             MYSQL_DATABASE: sinatra
-            MYSQL_ROOT_PASSWORD: lordswxp
+            MYSQL_ROOT_PASSWORD: suasenha
     app:
         build: .
         ports:
